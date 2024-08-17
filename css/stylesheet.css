@@ -1,0 +1,66 @@
+body {
+    font-family: Monospaced, sans-serif;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: darkgray;
+}
+header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: -10px; /* Adjust padding as needed */
+}
+
+.logo {
+    width: 200px; /* Logo width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Adjust based on your needs */
+}
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+
+}
+nav ul li button {
+    font-family: 'ui-monospace', Monospaced;
+    font-size: 14px;
+    color: #000;
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    padding: 4px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: crosshair;
+    outline: 1px solid #000;
+}
+
+nav ul li button:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+nav ul li button a {
+    text-decoration: none;
+    color: #000;
+    cursor: crosshair;
+}
+section {
+    margin-bottom: 20px;
+}

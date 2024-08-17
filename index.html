@@ -3,166 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test from claude</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #35424a;
-            color: white;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #e8491d 3px solid;
-        }
-        header a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        header #branding {
-            float: left;
-        }
-        header #branding h1 {
-            margin: 0;
-        }
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-        header .highlight, header .current a {
-            color: #e8491d;
-            font-weight: bold;
-        }
-        header a:hover {
-            color: #cccccc;
-            font-weight: bold;
-        }
-        #showcase {
-            min-height: 400px;
-            background: url('https://via.placeholder.com/1500x400') no-repeat center center/cover;
-            text-align: center;
-            color: #ffffff;
-        }
-        #showcase h1 {
-            margin-top: 100px;
-            font-size: 55px;
-            margin-bottom: 10px;
-        }
-        #showcase p {
-            font-size: 20px;
-        }
-        #newsletter {
-            padding: 15px;
-            color: #ffffff;
-            background: #35424a;
-        }
-        #newsletter h1 {
-            float: left;
-        }
-        #newsletter form {
-            float: right;
-            margin-top: 15px;
-        }
-        #newsletter input[type="email"] {
-            padding: 4px;
-            height: 25px;
-            width: 250px;
-        }
-        .button_1 {
-            height: 38px;
-            background: #e8491d;
-            border: none;
-            padding-left: 20px;
-            padding-right: 20px;
-            color: #ffffff;
-        }
-        #boxes {
-            margin-top: 20px;
-        }
-        #boxes .box {
-            float: left;
-            width: 30%;
-            padding: 10px;
-            text-align: center;
-        }
-        #boxes .box img {
-            width: 90px;
-        }
-        footer {
-            padding: 20px;
-            margin-top: 20px;
-            color: #ffffff;
-            background-color: #e8491d;
-            text-align: center;
-        }
-    </style>
+    <title>Minimalist Company Page</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
 <header>
-    <div class="container">
-        <div id="branding">
-            <h1><span class="highlight">Your</span> Company Name</h1>
-        </div>
-        <nav>
-            <ul>
-                <li class="current"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-            </ul>
-        </nav>
+    <div class="header-content">
+        <h1>Jonas Hongisto</h1>
+        <img src="croppedme.jpeg" alt="Image1" class="logo">
     </div>
+    <nav>
+        <ul>
+            <li><button><a href="#home">Home</a></button></li>
+            <li><button><a href="#about">About</a></button></li>
+            <li><button><a href="#services">Services</a></button></li>
+            <li><button><a href="#contact">Contact</a></button></li>
+            <li><button><a href="#contact">Contact</a></button></li>
+            <li><button><a href="#contact">Contact</a></button></li>
+            <li><button><a href="#contact">Contact</a></button></li>
+            <li><button><a href="#contact">Contact</a></button></li>
+            <li><button><a href="#contact">Contact</a></button></li>
+
+
+        </ul>
+    </nav>
 </header>
 
-<section id="showcase">
-    <div class="container">
-        <h1>Welcome to Your Company</h1>
-        <p>We provide top-notch solutions for your business needs.</p>
-    </div>
-</section>
+<main>
+    <section id="home">
+        <h2>Welcome to Our Company</h2>
+        <p>We provide innovative solutions for your business needs.</p>
+    </section>
 
-<section id="newsletter">
-    <div class="container">
-        <h1>Subscribe To Our Newsletter</h1>
-        <form>
-            <input type="email" placeholder="Enter Email...">
-            <button type="submit" class="button_1">Subscribe</button>
-        </form>
-    </div>
-</section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Founded in 2024, we're committed to excellence in our field.</p>
+    </section>
 
-<section id="boxes">
-    <div class="container">
-        <div class="box">
-            <img src="https://via.placeholder.com/90" alt="Feature 1">
-            <h3>Feature 1</h3>
-            <p>Description of feature 1 goes here.</p>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/90" alt="Feature 2">
-            <h3>Feature 2</h3>
-            <p>Description of feature 2 goes here.</p>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/90" alt="Feature 3">
-            <h3>Feature 3</h3>
-            <p>Description of feature 3 goes here.</p>
-        </div>
-    </div>
-</section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Service 1</li>
+            <li>Service 2</li>
+            <li>Service 3</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@yourcompany.com</p>
+        <p>Phone: (123) 456-7890</p>
+    </section>
+</main>
 
 <footer>
-    <p>TEST FROM CLAUDE &copy; 2024</p>
+    <p>&copy; 2024 Your Company Name. All rights reserved.</p>
 </footer>
 </body>
 </html>
