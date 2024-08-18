@@ -12,6 +12,11 @@ header {
     margin-bottom: 20px;
 }
 
+main
+{
+    min-height: 300px;
+}
+
 .header-content {
     min-height: 260px;
     display: flex;
