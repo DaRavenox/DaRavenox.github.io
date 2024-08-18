@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const logoWindow = document.getElementById('logoWindow');
     const toolbar = document.getElementById('logoWindowToolbar');
+    const logoWindowContent = document.getElementById('logoWindowContent');
+
     let isDragging = false;
     let currentX;
     let currentY;
@@ -18,7 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
     toolbar.addEventListener('touchstart', dragStart);
     document.addEventListener('touchmove', drag);
     document.addEventListener('touchend', dragEnd);
+    logoWindowContent.addEventListener('mousedown', moveToOriginal);
 
+    function moveToOriginal(e) {
+        xOffset = 0;
+        yOffset = 0;
+        setTranslate(0, 0, logoWindow);
+
+    }
     function dragStart(e) {
         if (e.type === 'touchstart') {
             initialX = e.touches[0].clientX - xOffset;
@@ -58,7 +67,32 @@ document.addEventListener('DOMContentLoaded', function() {
         isDragging = false;
     }
 
-    function setTranslate(xPos, yPos, el) {
-        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const logoMinimize = document.getElementById('logoWindowMinimize');
+    const logoWindowContent = document.getElementById('logoWindowContent');
+
+    // Mouse Event Listener on x.
+    logoMinimize.addEventListener('mousedown', minimize);
+
+    function minimize(e) {
+        logoWindowContent.hidden = !logoWindowContent.hidden;
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const logoX = document.getElementById('logoWindowClose');
+    const logoWindow = document.getElementById('logoWindow');
+
+    // Mouse Event Listener on x.
+    logoX.addEventListener('mousedown', closeWindow);
+
+    function closeWindow(e) {
+        logoWindow.remove();
+    }
+});
+
+function setTranslate(xPos, yPos, el) {
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+}
