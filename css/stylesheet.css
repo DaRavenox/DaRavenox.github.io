@@ -14,10 +14,9 @@ header {
 .header-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-bottom: -10px; /* Adjust padding as needed */
+    align-items: flex-start;  /* Changed from center to align-items: flex-start */
+    padding-bottom: 10px;
 }
-
 .logo {
     width: 200px; /* Logo width */
     height: auto; /* Maintain aspect ratio */
@@ -63,4 +62,52 @@ nav ul li button a {
 }
 section {
     margin-bottom: 20px;
+}
+
+
+.logo-window {
+    width: 210px;
+    border: 2px solid #c0c0c0;
+    background-color: #c0c0c0;
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+    position: relative;  /* Change from absolute to relative */
+    cursor: move;
+    user-select: none;
+    z-index: 1000;
+}
+
+.window-toolbar {
+    background-color: #000080;
+    color: white;
+    padding: 3px 2px 3px 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window-title {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.window-close {
+    background-color: #c0c0c0;
+    border: 1px solid #ffffff;
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+    color: #000000;
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.window-content {
+    padding: 2px;
+    background-color: #ffffff;
+    border: 2px solid;
+    border-color: #7f7f7f #ffffff #ffffff #7f7f7f;
 }
