@@ -69,6 +69,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+const contact = document.getElementById('homeContact');
+const services = document.getElementById('homeServices');
+const about = document.getElementById('homeAbout');
+const content = document.getElementById('homeContent');
+
+content.hidden = false;
+contact.hidden = true;
+services.hidden = true;
+about.hidden = true;
+
 document.addEventListener('DOMContentLoaded', function() {
     const logoMinimize = document.getElementById('logoWindowMinimize');
     const logoWindowContent = document.getElementById('logoWindowContent');
@@ -92,6 +102,58 @@ document.addEventListener('DOMContentLoaded', function() {
         logoWindow.remove();
     }
 });
+
+
+const map_button_to_content = new Map();
+function unhide(e) {
+
+    for(let [key, value] of map_button_to_content)
+    {
+        value.hidden = e.target !== key;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const aboutButton = document.getElementById('aboutButton')
+    // Mouse Event Listener on x.
+    aboutButton.addEventListener('mousedown', unhide);
+
+    map_button_to_content.set(aboutButton, about);
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const contentButton = document.getElementById('contentButton')
+    // Mouse Event Listener on x.
+    contentButton.addEventListener('mousedown', unhide);
+    map_button_to_content.set(contentButton, content);
+
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const servicesButton = document.getElementById('servicesButton')
+    // Mouse Event Listener on x.
+    servicesButton.addEventListener('mousedown', unhide);
+    map_button_to_content.set(servicesButton, services);
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+
+    const contactsButton = document.getElementById('contactsButton')
+    // Mouse Event Listener on x.
+    contactsButton.addEventListener('mousedown', unhide);
+    map_button_to_content.set(contactsButton, contact);
+
+});
+
+
+
+
 
 function setTranslate(xPos, yPos, el) {
     el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;

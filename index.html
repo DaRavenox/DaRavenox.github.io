@@ -15,56 +15,55 @@
             <div class="window-toolbar" id="logoWindowToolbar">
                 <span class="window-title">That's me</span>
                 <div class="window-buttons">
-                    <button class="window-minimize", id="logoWindowMinimize">-</button>
-                    <button class="window-close", id="logoWindowClose">×</button>
+                    <button class="window-minimize" id="logoWindowMinimize">-</button>
+                    <button class="window-close" id="logoWindowClose">×</button>
                 </div>
             </div>
-            <div class="window-content", id="logoWindowContent">
+            <div class="window-content" id="logoWindowContent">
                 <img src="croppedme.jpeg" alt="Image1" class="logo">
             </div>
         </div>
     </div>
     <nav>
         <ul>
-            <li><button><a href="#home">Home</a></button></li>
-            <li><button><a href="#about">About</a></button></li>
-            <li><button><a href="#services">TestA</a></button></li>
-            <li><button><a href="#contact">TestA</a></button></li>
-            <li><button><a href="#contact">TestA</a></button></li>
-            <li><button><a href="#contact">TestA</a></button></li>
-            <li><button><a href="#contact">TestA</a></button></li>
-            <li><button><a href="#contact">TestA</a></button></li>
-            <li><button><a href="#contact">TestA</a></button></li>
-
+            <li><button id="contentButton">Home</button></li>
+            <li><button id="aboutButton">About</button></li>
+            <li><button id="servicesButton">Services</button></li>
+            <li><button id="contactsButton">Contacts</button></li>
         </ul>
     </nav>
 </header>
 
 <main>
+    <div class="home-about" id="homeAbout">
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Founded in 1993, we're committed to excellence in our field.</p>
+        </section>
+    </div>
+    <div class="home-content" id="homeContent">
     <section id="home">
         <h2>Welcome to my work in progress web page</h2>
         <p>It is still getting built so just relax for now.</p>
     </section>
-
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Founded in 1993, we're committed to excellence in our field.</p>
-    </section>
-
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Software</li>
-            <li>Robotics</li>
-            <li>Apparently web dev</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: test@test.com</p>
-        <p>Phone: (123) 456-7890</p>
-    </section>
+    </div>
+    <div class="home-services" id="homeServices">
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Software</li>
+                <li>Robotics</li>
+                <li>Apparently web dev</li>
+            </ul>
+        </section>
+    </div>
+    <div class="home-contact" id="homeContact">
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: test@test.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </section>
+    </div>
 </main>
 
 <footer>

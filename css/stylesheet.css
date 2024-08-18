@@ -6,6 +6,7 @@ body {
     padding: 20px;
     background-color: darkgray;
 }
+
 header {
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
@@ -133,4 +134,23 @@ section {
     border: 2px solid;
     border-color: #7f7f7f #ffffff #ffffff #7f7f7f;
     cursor: pointer;
+}
+
+
+.home-about
+{
+    visibility: visible;
+}
+.home-content
+{
+    visibility: visible;
+}
+.home-services
+{
+    visibility: visible;
+}
+
+.home-contact
+{
+    visibility: visible;
 }
