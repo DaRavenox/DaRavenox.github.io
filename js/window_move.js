@@ -1,8 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const logoWindow = document.getElementById('logoWindow');
-    const toolbar = document.getElementById('logoWindowToolbar');
-    const logoWindowContent = document.getElementById('logoWindowContent');
-
+function makeDraggable(element, handleElement) {
     let isDragging = false;
     let currentX;
     let currentY;
@@ -12,22 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let yOffset = 0;
 
     // Mouse Event Listeners
-    toolbar.addEventListener('mousedown', dragStart);
+    handleElement.addEventListener('mousedown', dragStart);
     document.addEventListener('mousemove', drag);
     document.addEventListener('mouseup', dragEnd);
 
     // Touch Event Listeners
-    toolbar.addEventListener('touchstart', dragStart);
+    handleElement.addEventListener('touchstart', dragStart);
     document.addEventListener('touchmove', drag);
     document.addEventListener('touchend', dragEnd);
-    logoWindowContent.addEventListener('mousedown', moveToOriginal);
 
-    function moveToOriginal(e) {
-        xOffset = 0;
-        yOffset = 0;
-        setTranslate(0, 0, logoWindow);
-
-    }
     function dragStart(e) {
         if (e.type === 'touchstart') {
             initialX = e.touches[0].clientX - xOffset;
@@ -37,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             initialY = e.clientY - yOffset;
         }
 
-        if (e.target === toolbar) {
+        if (e.target === handleElement) {
             isDragging = true;
         }
     }
@@ -56,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             xOffset = currentX;
             yOffset = currentY;
 
-            setTranslate(currentX, currentY, logoWindow);
+            setTranslate(currentX, currentY, element);
         }
     }
 
@@ -66,41 +55,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
         isDragging = false;
     }
+}
 
-});
 
-const contact = document.getElementById('homeContact');
-const services = document.getElementById('homeServices');
-const about = document.getElementById('homeAbout');
-const content = document.getElementById('homeContent');
+function makeWindowsWindow(window, toolbar, windowContent, minimize, close)
+{
+    makeDraggable(window, toolbar);
+    windowContent.addEventListener('mousedown', function() {setTranslate(0, 0, Window); });
+    minimize.addEventListener('mousedown', function (){windowContent.hidden = !windowContent.hidden; });
+    close.addEventListener('mousedown', function () {window.remove(); });
 
-content.hidden = false;
-contact.hidden = true;
-services.hidden = true;
-about.hidden = true;
+}
+document.addEventListener('DOMContentLoaded', function () {
+    makeWindowsWindow(
+        document.getElementById('logoWindow'),
+        document.getElementById('logoWindowToolbar'),
+        document.getElementById('logoWindowContent'),
+        document.getElementById('logoWindowMinimize'),
+        document.getElementById('logoWindowClose'));
 
-document.addEventListener('DOMContentLoaded', function() {
-    const logoMinimize = document.getElementById('logoWindowMinimize');
-    const logoWindowContent = document.getElementById('logoWindowContent');
 
-    // Mouse Event Listener on x.
-    logoMinimize.addEventListener('mousedown', minimize);
+    makeWindowsWindow(
+        document.getElementById('headerWindow'),
+        document.getElementById('headerWindowToolbar'),
+        document.getElementById('headerWindowContent'),
+        document.getElementById('headerWindowMinimize'),
+        document.getElementById('headerWindowClose'))
 
-    function minimize(e) {
-        logoWindowContent.hidden = !logoWindowContent.hidden;
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const logoX = document.getElementById('logoWindowClose');
-    const logoWindow = document.getElementById('logoWindow');
-
-    // Mouse Event Listener on x.
-    logoX.addEventListener('mousedown', closeWindow);
-
-    function closeWindow(e) {
-        logoWindow.remove();
-    }
 });
 
 
@@ -113,46 +94,31 @@ function unhide(e) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function addContentButton(content, button, startHidden = true)
+{
+    content.hidden = startHidden;
+    map_button_to_content.set(button, content);
+    button.addEventListener('mousedown', unhide);
+}
 
-    const aboutButton = document.getElementById('aboutButton')
-    // Mouse Event Listener on x.
-    aboutButton.addEventListener('mousedown', unhide);
-
-    map_button_to_content.set(aboutButton, about);
-
-});
 
 document.addEventListener('DOMContentLoaded', function() {
-    const contentButton = document.getElementById('contentButton')
-    // Mouse Event Listener on x.
-    contentButton.addEventListener('mousedown', unhide);
-    map_button_to_content.set(contentButton, content);
+    const contentElement = document.getElementById('homeContent');
+    const buttonElement = document.getElementById('contentButton');
+    addContentButton(contentElement, buttonElement, false);
 
+    const aboutElement = document.getElementById('homeAbout');
+    const aboutButtonElement = document.getElementById('aboutButton');
+    addContentButton(aboutElement, aboutButtonElement);
 
+    const servicesElement = document.getElementById('homeServices');
+    const servicesButtonElement = document.getElementById('servicesButton');
+    addContentButton(servicesElement, servicesButtonElement);
+
+    const contactElement = document.getElementById('homeContact');
+    const contactButtonElement = document.getElementById('contactsButton');
+    addContentButton(contactElement, contactButtonElement);
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    const servicesButton = document.getElementById('servicesButton')
-    // Mouse Event Listener on x.
-    servicesButton.addEventListener('mousedown', unhide);
-    map_button_to_content.set(servicesButton, services);
-
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-
-
-    const contactsButton = document.getElementById('contactsButton')
-    // Mouse Event Listener on x.
-    contactsButton.addEventListener('mousedown', unhide);
-    map_button_to_content.set(contactsButton, contact);
-
-});
-
-
-
 
 
 function setTranslate(xPos, yPos, el) {

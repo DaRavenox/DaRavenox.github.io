@@ -134,6 +134,7 @@ section {
 }
 
 .window-content {
+    text-align: center;
     padding: 2px;
     background-color: #ffffff;
     border: 2px solid;
