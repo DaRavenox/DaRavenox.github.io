@@ -1,4 +1,4 @@
-function makeDraggable(element, handleElement) {
+function makeDraggable(element, handleElement, reset) {
     let isDragging = false;
     let currentX;
     let currentY;
@@ -16,7 +16,7 @@ function makeDraggable(element, handleElement) {
     handleElement.addEventListener('touchstart', dragStart);
     document.addEventListener('touchmove', drag);
     document.addEventListener('touchend', dragEnd);
-
+    reset.addEventListener('mousedown', moveToOriginal);
     function dragStart(e) {
         if (e.type === 'touchstart') {
             initialX = e.touches[0].clientX - xOffset;
@@ -49,6 +49,12 @@ function makeDraggable(element, handleElement) {
         }
     }
 
+    function moveToOriginal(e) {
+        xOffset = 0;
+        yOffset = 0;
+        setTranslate(0, 0, element);
+
+    }
     function dragEnd(e) {
         initialX = currentX;
         initialY = currentY;
@@ -60,8 +66,7 @@ function makeDraggable(element, handleElement) {
 
 function makeWindowsWindow(window, toolbar, windowContent, minimize, close)
 {
-    makeDraggable(window, toolbar);
-    windowContent.addEventListener('mousedown', function() {setTranslate(0, 0, Window); });
+    makeDraggable(window, toolbar, windowContent);
     minimize.addEventListener('mousedown', function (){windowContent.hidden = !windowContent.hidden; });
     close.addEventListener('mousedown', function () {window.remove(); });
 
